@@ -19,6 +19,10 @@ render.animation(wheel) # compute and render
 ani.replay() # play back in plot window
 
 
+
+
+
+
 ###################################################
 ### code chunk number 3: fig1
 ###################################################
