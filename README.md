@@ -1,7 +1,7 @@
 ndtv-shiny
 ==========
 
-R-Shiny interface for ndtv package
+R-Shiny interface for ndtv package for animating dynamic network data http://cran.r-project.org/web/packages/ndtv/index.html
 
 
 News: 06/16 (Kirk)
