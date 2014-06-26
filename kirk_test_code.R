@@ -1,7 +1,7 @@
 library(ndtv)
 
 
-Sys.which('ffmpeg')
+?install.ffmpeg
 
 ani.options(outdir=getwd())
 
@@ -10,4 +10,4 @@ saveVideo({
       cex.main = 1)
   ani.options(interval = 0.05, nmax = 300)
   brownian.motion(pch = 21, cex = 5, col = "red", bg = "yellow")
-}, video.name = "BM.mp4")  # higher bitrate, better quality
+}, video.name = "BM.mp4"，other.opts="-pix_fmt yuv420p")  # higher bitrate, better quality
