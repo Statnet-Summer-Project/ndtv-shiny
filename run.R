@@ -14,7 +14,9 @@ runApp()
 ##devtools::install_github("rstudio/shinyapps")
 ####
 library(shinyapps)
-#deployApp(appName = "ndtv-shiny")
-
-
-
+deployApp(appName = "dynamic-network-visualization")
+#
+#ls()
+#library(sna)
+#plot(faux.mesa.high,vertex.cex="Grade")
+#
