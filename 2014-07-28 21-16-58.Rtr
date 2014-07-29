@@ -1,0 +1,412 @@
+﻿##------ Jul 28, 2014, 9:16:58 PM ------##
+
+R version 3.1.1 (2014-07-10) -- "Sock it to Me"
+Copyright (C) 2014 The R Foundation for Statistical Computing
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> source("/home/kirk/Dropbox/hiv_network/workspace/kk_utils/utils.R", echo=FALSE, encoding="UTF-8")
+> help("saveVideo")
+No documentation for ‘saveVideo’ in specified packages and libraries:
+you could try ‘??saveVideo’
+> library(ndtv)
+Loading required package: network
+network: Classes for Relational Data
+Version 1.10.2 created on 2014-06-12.
+copyright (c) 2005, Carter T. Butts, University of California-Irvine
+                    Mark S. Handcock, University of California -- Los Angeles
+                    David R. Hunter, Penn State University
+                    Martina Morris, University of Washington
+                    Skye Bender-deMoll, University of Washington
+ For citation information, type citation("network").
+ Type help("network-package") to get started.
+
+Loading required package: networkDynamic
+
+networkDynamic: version 0.6.3, created on 2014-02-27
+Copyright (c) 2014, Carter T. Butts, University of California -- Irvine
+                    Ayn Leslie-Cook, University of Washington
+                    Pavel N. Krivitsky, University of Wollongong
+                    Skye Bender-deMoll, University of Washington
+                    with contributions from
+                    Zack Almquist, University of California -- Irvine
+                    David R. Hunter, Penn State University
+                    Li Wang
+                    Kirk Li, University of Washington
+                    Steven M. Goodreau, University of Washington
+                    Martina Morris, University of Washington
+Based on "statnet" project software (statnet.org).
+For license and citation information see statnet.org/attribution
+or type citation("networkDynamic").
+
+Loading required package: animation
+Loading required package: sna
+sna: Tools for Social Network Analysis
+Version 2.3-2 created on 2014-01-13.
+copyright (c) 2005, Carter T. Butts, University of California-Irvine
+ For citation information, type citation("sna").
+ Type help(package="sna") to get started.
+
+
+Attaching package: ‘sna’
+
+The following object is masked from ‘package:network’:
+
+    %c%
+
+
+ndtv: version 0.5.1, created on 2014-01-27
+Copyright (c) 2014, Skye Bender-deMoll, University of Washington
+                    with contributions from
+                    Martina Morris, University of Washington
+Based on "statnet" project software (statnet.org).
+For license and citation information see statnet.org/attribution
+or type citation("ndtv").
+
+> help("saveVideo")
+> library(network)
+> library(shiny)
+> library(shinyData)
+> runApp()
+
+Listening on http://127.0.0.1:5648
+Loading required package: statnet.common
+
+ergm: version 3.1.2, created on 2014-01-30
+Copyright (c) 2014, Mark S. Handcock, University of California -- Los Angeles
+                    David R. Hunter, Penn State University
+                    Carter T. Butts, University of California -- Irvine
+                    Steven M. Goodreau, University of Washington
+                    Pavel N. Krivitsky, University of Wollongong
+                    Martina Morris, University of Washington
+Based on "statnet" project software (statnet.org).
+For license and citation information see statnet.org/attribution
+or type citation("ergm").
+
+NOTE: If you use custom ERGM terms based on ‘ergm.userterms’ version
+prior to 3.1, you will need to perform a one-time update of the package
+boilerplate files (the files that you did not write or modify) from
+‘ergm.userterms’ 3.1 or later. See help('eut-upgrade') for
+instructions.
+
+NOTE: Dynamic network modeling functionality (STERGMs) has been moved
+to a new package, ‘tergm’.
+
+
+tergm: version 3.1.4, created on 2014-01-16
+Copyright (c) 2014, Pavel N. Krivitsky, University of Wollongong
+                    Mark S. Handcock, University of California -- Los Angeles
+                    with contributions from
+                    David R. Hunter, Penn State University
+                    Steven M. Goodreau, University of Washington
+                    Martina Morris, University of Washington
+                    Nicole Bohme Carnegie, New York University
+                    Carter T. Butts, University of California -- Irvine
+                    Ayn Leslie-Cook, University of Washington
+                    Skye Bender-deMoll
+Based on "statnet" project software (statnet.org).
+For license and citation information see statnet.org/attribution
+or type citation("tergm").
+
+[1] "rendering 10 frames for slice 0"
+[1] "rendering 10 frames for slice 1"
+[1] "rendering 10 frames for slice 2"
+[1] "rendering 10 frames for slice 3"
+[1] "rendering 10 frames for slice 4"
+[1] "rendering 10 frames for slice 5"
+[1] "rendering 10 frames for slice 6"
+[1] "rendering 10 frames for slice 7"
+[1] "rendering 10 frames for slice 8"
+[1] "rendering 10 frames for slice 9"
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p animation.mp4
+
+
+Video has been created at: /home/kirk/Dropbox/hiv_network/workspace/ndtv-shiny/animation.mp4
+[1] "rendering 10 frames for slice 0"
+[1] "rendering 10 frames for slice 1"
+[1] "rendering 10 frames for slice 2"
+[1] "rendering 10 frames for slice 3"
+[1] "rendering 10 frames for slice 4"
+[1] "rendering 10 frames for slice 5"
+[1] "rendering 10 frames for slice 6"
+[1] "rendering 10 frames for slice 7"
+[1] "rendering 10 frames for slice 8"
+[1] "rendering 10 frames for slice 9"
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p animation.mp4
+
+
+Video has been created at: /home/kirk/Dropbox/hiv_network/workspace/ndtv-shiny/animation.mp4
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p test.mp4
+
+
+Video has been created at: /home/kirk/Dropbox/hiv_network/workspace/ndtv-shiny/test.mp4
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p animation.mp4
+[1] "rendering 10 frames for slice 0"
+[1] "rendering 10 frames for slice 1"
+[1] "rendering 10 frames for slice 2"
+[1] "rendering 10 frames for slice 3"
+[1] "rendering 10 frames for slice 4"
+[1] "rendering 10 frames for slice 5"
+[1] "rendering 10 frames for slice 6"
+[1] "rendering 10 frames for slice 7"
+[1] "rendering 10 frames for slice 8"
+[1] "rendering 10 frames for slice 9"
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p animation.mp4
+
+
+Video has been created at: /home/kirk/Dropbox/hiv_network/workspace/ndtv-shiny/animation.mp4
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png  test.mp4
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -pix_fmt yuv420p animation.mp4
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png  test.mp4
+
+> (Command cancelled)
+> sessionInfo()
+R version 3.1.1 (2014-07-10)
+Platform: x86_64-unknown-linux-gnu (64-bit)
+
+locale:
+ [1] LC_CTYPE=en_US.UTF-8          LC_NUMERIC=C                 
+ [3] LC_TIME=en_US.UTF-8           LC_COLLATE=en_US.UTF-8       
+ [5] LC_MONETARY=en_US.UTF-8       LC_MESSAGES=en_US.UTF-8      
+ [7] LC_PAPER=en_US.UTF-8          LC_NAME=en_US.UTF-8          
+ [9] LC_ADDRESS=en_US.UTF-8        LC_TELEPHONE=en_US.UTF-8     
+[11] LC_MEASUREMENT=en_US.UTF-8    LC_IDENTIFICATION=en_US.UTF-8
+
+attached base packages:
+[1] stats     graphics  grDevices utils     datasets  methods   base     
+
+other attached packages:
+ [1] tergm_3.1.4          ergm_3.1.2           statnet.common_3.1.1
+ [4] shinyData_1.0        shiny_0.10.0         ndtv_0.5.1          
+ [7] sna_2.3-2            animation_2.3        networkDynamic_0.6.3
+[10] network_1.10.2       rj_1.1.3-1          
+
+loaded via a namespace (and not attached):
+ [1] bitops_1.0-6      caTools_1.17      coda_0.16-1       DEoptimR_1.0-1   
+ [5] digest_0.6.4      grid_3.1.1        htmltools_0.2.4   httpuv_1.3.0     
+ [9] lattice_0.20-29   Matrix_1.1-4      nlme_3.1-117      Rcpp_0.11.2      
+[13] rj.gd_1.1.3-1     RJSONIO_1.2-0.2   robustbase_0.91-1 tools_3.1.1      
+[17] trust_0.1-6       xtable_1.7-3     
+> saveVedio
+Error: object 'saveVedio' not found
+> saveVideo
+function(
+  expr, video.name = 'animation.mp4', img.name = 'Rplot', ffmpeg = 'ffmpeg',
+  other.opts = if (grepl('[.]mp4$', video.name)) '-pix_fmt yuv420p', ...
+) {
+  oopt = ani.options(...)
+  on.exit(ani.options(oopt))
+  owd = setwd(tempdir())
+  on.exit(setwd(owd), add = TRUE)
+
+  if (!is.null(ani.options('ffmpeg'))) {
+    ffmpeg = ani.options('ffmpeg')
+  }
+  if (!grepl('^["\']', ffmpeg)) ffmpeg = shQuote(ffmpeg)
+
+  version = try(system(paste(ffmpeg, '-version'), intern = TRUE))
+  if (inherits(version, 'try-error')) {
+    warning('The command "', ffmpeg, '" is not available in your system. Please install FFmpeg first: ',
+            ifelse(.Platform$OS.type == 'windows', 'http://ffmpeg.arrozcru.org/autobuilds/',
+                   'http://ffmpeg.org/download.html'))
+    return()
+  }
+
+  ani.dev = ani.options('ani.dev')
+  file.ext = ani.options('ani.type')
+  interval = ani.options('interval')
+  if (is.character(ani.dev)) ani.dev = get(ani.dev)
+
+  num = ifelse(file.ext == 'pdf', '', '%d')
+  unlink(paste(img.name, '*.', file.ext, sep = ''))
+  img.fmt = paste(img.name, num, '.', file.ext, sep = '')
+  img.fmt = file.path(tempdir(), img.fmt)
+  ani.options(img.fmt = img.fmt)
+  if ((use.dev <- ani.options('use.dev')))
+    ani.dev(img.fmt, width = ani.options('ani.width'),
+            height = ani.options('ani.height'))
+  in_dir(owd, expr)
+  if (use.dev) dev.off()
+
+  ## call FFmpeg
+  ffmpeg = paste(ffmpeg, '-y', '-r', 1/ani.options('interval'), '-i',
+                 basename(img.fmt), other.opts, basename(video.name))
+  message('Executing: ', ffmpeg)
+  cmd = system(ffmpeg)
+
+  if (cmd == 0) {
+    setwd(owd)
+    file.copy(file.path(tempdir(), basename(video.name)), video.name)
+    message('\n\nVideo has been created at: ',
+            output.path <- normalizePath(video.name))
+    auto_browse(output.path)
+  }
+  invisible(cmd)
+}
+<environment: namespace:animation>
+> slice.par<-list(start=0,end=10,interval=1, 
++                 aggregate.dur=1,rule="latest")
+> save1 <- compute.animation(stergm.sim.2,slice.par=slice.par,
++                                 animation.mode='MDSJ')
+[1] "Calculating layout for network slice from time  0 to 1"
+[1] "MDSJ starting stress: 159.89119974028668"
+[2] "MDSJ ending stress: 12.462475323483703"  
+[1] "Calculating layout for network slice from time  1 to 2"
+[1] "MDSJ starting stress: 14.042142678555999"
+[2] "MDSJ ending stress: 12.08368207140642"   
+[1] "Calculating layout for network slice from time  2 to 3"
+[1] "MDSJ starting stress: 17.605813201512035"
+[2] "MDSJ ending stress: 12.427041353928217"  
+[1] "Calculating layout for network slice from time  3 to 4"
+[1] "MDSJ starting stress: 58.062079904928794"
+[2] "MDSJ ending stress: 13.683402176493875"  
+[1] "Calculating layout for network slice from time  4 to 5"
+[1] "MDSJ starting stress: 15.910571362328954"
+[2] "MDSJ ending stress: 12.528742439623894"  
+[1] "Calculating layout for network slice from time  5 to 6"
+[1] "MDSJ starting stress: 17.129138960632407"
+[2] "MDSJ ending stress: 12.371785592636108"  
+[1] "Calculating layout for network slice from time  6 to 7"
+[1] "MDSJ starting stress: 15.713372274564925"
+[2] "MDSJ ending stress: 12.081016798860897"  
+[1] "Calculating layout for network slice from time  7 to 8"
+[1] "MDSJ starting stress: 35.288505125381675"
+[2] "MDSJ ending stress: 11.604599506230354"  
+[1] "Calculating layout for network slice from time  8 to 9"
+[1] "MDSJ starting stress: 15.22636123332453"
+[2] "MDSJ ending stress: 10.728469470785155" 
+[1] "Calculating layout for network slice from time  9 to 10"
+[1] "MDSJ starting stress: 12.411701801915035"
+[2] "MDSJ ending stress: 11.832076462843528"  
+[1] "Calculating layout for network slice from time  10 to 11"
+[1] "MDSJ starting stress: 14.971236687637594"
+[2] "MDSJ ending stress: 9.824275574198241"   
+> save1
+NetworkDynamic properties:
+  distinct change times: 14 
+  maximal time range: -Inf to Inf 
+
+ Dynamic (TEA) attributes:
+  Vertex TEAs:    animation.x.active 
+     animation.y.active 
+
+Includes optional net.obs.period attribute:
+ Network observation period info:
+  Number of observation spells: 2 
+  Maximal range of observations: 0 to 11 
+  Temporal mode: discrete 
+  Time unit: step 
+  Suggested time increment: 1 
+
+ Network attributes:
+  vertices = 16 
+  directed = FALSE 
+  hyper = FALSE 
+  loops = FALSE 
+  multiple = FALSE 
+  bipartite = FALSE 
+  net.obs.period: (not shown)
+  slice.par:
+              Length Class  Mode     
+start         1      -none- numeric  
+end           1      -none- numeric  
+interval      1      -none- numeric  
+aggregate.dur 1      -none- numeric  
+rule          1      -none- character
+  total edges= 31 
+    missing edges= 0 
+    non-missing edges= 31 
+
+ Vertex attribute names: 
+    animation.x.active animation.y.active priorates totalties vertex.names wealth 
+
+ Edge attribute names: 
+    active 
+> render.par=list(tween.frames=5,show.time=TRUE,
++                 show.stats="~edges+gwesp(0,fixed=TRUE)")
+> 
+> 
+> ###################################################
+> ### code chunk number 12: render_animation
+> ###################################################
+> render.animation(save1,render.par=render.par,
++                  edge.col="darkgray",displaylabels=TRUE,
++                  label.cex=.6,label.col="blue")
+[1] "rendering 5 frames for slice 0"
+[1] "rendering 5 frames for slice 1"
+[1] "rendering 5 frames for slice 2"
+[1] "rendering 5 frames for slice 3"
+[1] "rendering 5 frames for slice 4"
+[1] "rendering 5 frames for slice 5"
+[1] "rendering 5 frames for slice 6"
+[1] "rendering 5 frames for slice 7"
+[1] "rendering 5 frames for slice 8"
+[1] "rendering 5 frames for slice 9"
+[1] "rendering 5 frames for slice 10"
+> saveVideo(ani.replay(),video.name="stergm.sim.1.mp4", 
++                     other.opts="-b 5000k",clean=TRUE,outdir="c:/")
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -b 5000k stergm.sim.1.mp4
+
+
+Video has been created at: /home/kirk/Dropbox/hiv_network/workspace/ndtv-shiny/stergm.sim.1.mp4
+>  
+> library(shinyapps)
+
+Attaching package: ‘shinyapps’
+
+The following object is masked from ‘package:shiny’:
+
+    hr
+
+> deployApp(appName = "ndtv-shiny")
+Preparing to deploy application...DONE
+Uploading application bundle...DONE
+Deploying application: 16377...
+Waiting for task: 730438
+  building: Building image: 34587
+  building: Installing package: shinyData (1.0)
+  building: Installing package: DEoptimR (1.0-1)
+  building: Installing package: animation (2.3)
+  building: Installing package: statnet.common (3.1.1)
+  building: Installing package: bitops (1.0-6)
+  building: Installing package: digest (0.6.4)
+  building: Installing package: trust (0.1-6)
+  building: Installing package: sna (2.3-2)
+  building: Installing package: htmltools (0.2.4)
+  building: Installing package: networkDynamic (0.6.3)
+  building: Installing package: lattice (0.20-29)
+  building: Installing package: nlme (3.1-117)
+  building: Installing package: ndtv (0.5.1)
+  building: Installing package: coda (0.16-1)
+  building: Installing package: Matrix (1.1-4)
+  building: Installing package: RCurl (1.95-4.1)
+  building: Installing package: RJSONIO (1.2-0.2)
+  building: Installing package: shinyapps (0.3.55)
+  building: Installing package: Rcpp (0.11.2)
+  building: Installing package: httpuv (1.3.0)
+  building: Installing package: robustbase (0.91-1)
+  building: Installing package: ergm (3.1.2)
+  building: Installing package: tergm (3.1.4)
+  building: Installing package: shiny (0.10.0)
+  building: Pushing image: 34587
+  deploying: Starting 1 instance(s)
+  rollforward: Activating new instances
+  unstaging: Stopping old instances
+Application successfully deployed to http://kecoli.shinyapps.io/ndtv-shiny
+> help("saveVideo")
+> saveVideo(ani.replay(),video.name="stergm.sim.1.mp4", 
++                     other.opts="-b 400k",clean=TRUE)
+Executing: 'ffmpeg' -y -r 10 -i Rplot%d.png -b 400
