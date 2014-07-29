@@ -159,12 +159,6 @@ shinyServer(
            else return()
            })")))
    
-   
-   
-   
-   
-   
-   
    ct=1:12
    eval(parse(text=paste0("metric.list.m_slice.par.",ct,"<- reactive({if(length(input$mychooser_slice.par$right)>=",ct,"){
            if(length(input$para_slice.par.",ct,")>0){
@@ -213,9 +207,6 @@ shinyServer(
            else return()
            } 
            })")))
-   
-   
-   
    
    argFun.slice.par <- reactive({
       string.use <- paste0("c(",paste0("metric.list.m_slice.par.",1:12,"()",collapse=","),")") 
@@ -267,6 +258,7 @@ shinyServer(
    ca.fn <- reactive({
       if(input$compute_ndtv==0)return()
       input$compute_ndtv
+      
       calist <- argFun.ca()
       tmp <- if(length(calist)){","}   
       net <- isolate({nwd.reac()})
@@ -287,6 +279,8 @@ shinyServer(
    
    
    render.par<-reactive({
+      if(input$render_ndtv==0)return()
+      input$render_ndtv
       tmp <- argFun.render.par()
       l1 <- render.par.arg.vec.val()
       if(!is.null(tmp)){
@@ -299,26 +293,23 @@ shinyServer(
    ra.fn <- reactive({
       if(input$render_ndtv==0)return()
       input$render_ndtv
+      
       ralist <- argFun.ra()
       tmp <- if(length(ralist)){","}   
       res <- isolate({ca.fn()})
       tryCatch(eval(parse(text=paste("tryCatch(expr=render.animation(res,render.par=render.par()",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
           )),error=function(e)cat("Input format is invalid"))
-     
+      
      })
-   
    
    
    output$ra_ndtv <- renderPrint({
       if(input$render_ndtv==0)return()
-      
       input$render_ndtv
-      
-      ralist <- argFun.ra()
+      ralist <- isolate({argFun.ra()})
       tmp <- if(length(ralist)){","}   
-      
       res <- isolate({ca.fn()})
-      tryCatch(eval(parse(text=paste("tryCatch(expr=render.animation(res,render.par=render.par()",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
+      tryCatch(eval(parse(text=paste("tryCatch(expr=render.animation(res,render.par=isolate({render.par()})",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
           )),error=function(e)cat("Input format is invalid"))
      })
    
@@ -335,9 +326,6 @@ shinyServer(
         eval(parse(text=paste0("l1$",tmp2[[i]][1],"<-",tmp2[[i]][2])))}
       l1$video.name
      })
-   
-   
-   
    
    
    sa.fn <- reactive({
@@ -361,12 +349,13 @@ shinyServer(
       tryCatch(eval(parse(text=paste("tryCatch(expr=saveVideo(isolate({ra.fn()})",tmp,paste(salist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
           )),error=function(e)cat("Input format is invalid"))
      })
+
    
    output$movie1 <- renderUI({
       if(input$save_ndtv==0)return()
       input$save_ndtv
       sa.fn()
-      tags$video(src = "animation.mp4", type = "video/mp4", autoplay = FALSE, controls = TRUE)
+      tags$video(src = "animation.mp4", type = "video/mp4", autoplay = FALSE, controls = TRUE,width="550",height="550")
      })
    
    
@@ -378,7 +367,7 @@ shinyServer(
    ##    sa.fn()
 #     })
    
-
+   
   })
 
 

@@ -6,7 +6,6 @@ library(network)
 library(shiny)
 library(shinyData)
 runApp()
-#
 # devtools::install_github("Statnet-Summer-Project/shinyData")
 ##roxygenize(getwd())
 #

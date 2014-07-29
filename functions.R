@@ -30,6 +30,17 @@ generic.para.vec <- para[para$tab=="generic","parameter"]
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 generic.arg.vec <- function()intersect(names(formals(plot.network.default)),generic.para.vec)
 
 generic.arg.vec.val <- function(){

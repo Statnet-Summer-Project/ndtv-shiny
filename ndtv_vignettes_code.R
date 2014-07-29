@@ -81,7 +81,7 @@ ndtv:::install.mdsj(mdsj.dir)
 ###################################################
 ### code chunk number 10: calc_params
 ###################################################
-slice.par<-list(start=0,end=10,interval=1, 
+slice.par<-list(start=5,end=10,interval=1, 
   aggregate.dur=1,rule="latest")
 save1 <- compute.animation(stergm.sim.2,slice.par=slice.par,
   animation.mode='MDSJ')
@@ -110,7 +110,9 @@ render.animation(save1,render.par=render.par,
 ###################################################
 ### code chunk number 14: save_test
 ####################################################
-saveVideo(ani.replay(),video.name="stergm.sim.1.mp4",clean=TRUE)
+saveVideo(render.animation(save1,render.par=render.par,
+    edge.col="darkgray",displaylabels=TRUE,
+    label.cex=.6,label.col="blue"),video.name="stergm.sim.1.mp4",clean=TRUE)
 
 des = c("This is a silly example.\n\n", "You can describe it in more detail.", 
   "For example, bla bla...")
