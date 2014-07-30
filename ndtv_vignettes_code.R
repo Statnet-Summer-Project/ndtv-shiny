@@ -66,7 +66,7 @@ data(stergm.fit.1)
 ### code chunk number 8: test_sim
 ###################################################
 stergm.sim.2 <- simulate.stergm(stergm.fit.1,
-  nsim=1, time.slices = 10)
+  nsim=1, time.slices = 20)
 
 #save(stergm.sim.2,file="stergm.sim.2.RData")
 ###################################################

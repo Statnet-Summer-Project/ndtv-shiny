@@ -16,7 +16,3 @@ runApp()
 library(shinyapps)
 deployApp(appName = "dynamic-network-visualization")
 #
-#ls()
-#library(sna)
-#plot(faux.mesa.high,vertex.cex="Grade")
-#

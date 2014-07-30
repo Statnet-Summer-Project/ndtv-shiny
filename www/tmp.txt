@@ -1,0 +1,42 @@
+_T_w_o _v_e_r_s_i_o_n_s _o_f _a_n _E. _C_o_l_i _n_e_t_w_o_r_k _d_a_t_a_s_e_t
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     This network data set comprises two versions of a biological
+     network in which the nodes are operons in _Escherichia Coli_ and a
+     directed edge from one node to another indicates that the first
+     encodes the transcription factor that regulates the second.
+
+_U_s_a_g_e:
+
+     data(ecoli)
+     
+_D_e_t_a_i_l_s:
+
+     The network object 'ecoli1' is directed, with 423 nodes and 519
+     arcs. The object 'ecoli2' is an undirected version of the same
+     network, in which all arcs are treated as edges and the five
+     isolated nodes (which exhibit only self-regulation in 'ecoli1')
+     are removed, leaving 418 nodes.
+
+_L_i_c_e_n_s_e_s _a_n_d _C_i_t_a_t_i_o_n:
+
+     When publishing results obtained using this data set, the original
+     authors (Salgado et al, 2001; Shen-Orr et al, 2002) should be
+     cited, along with this 'R' package.
+
+_S_o_u_r_c_e:
+
+     The data set is based on the RegulonDB network (Salgado et al,
+     2001) and was modified by Shen-Orr et al (2002).
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Salgado et al (2001), Regulondb (version 3.2): Transcriptional
+     Regulation and Operon Organization in Escherichia Coli K-12,
+     _Nucleic Acids Research_, 29(1): 72-74.
+
+     Shen-Orr et al (2002), Network Motifs in the Transcriptional
+     Regulation Network of Escerichia Coli, _Nature Genetics_, 31(1):
+     64-68.
+

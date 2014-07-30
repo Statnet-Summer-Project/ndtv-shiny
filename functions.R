@@ -23,14 +23,15 @@ network.arg.vec.val <- function(){
 #save(para,file="para.RData")
 
 data(para)
-edge.para.vec <- para[para$tab=="edge","parameter"]
-vertex.para.vec <- para[para$tab=="vertex","parameter"]
-layout.para.vec <- para[para$tab=="layout","parameter"]
-generic.para.vec <- para[para$tab=="generic","parameter"]
+edge.para.vec <- as.character(para[para$tab=="edge","parameter"])
+vertex.para.vec <- as.character(para[para$tab=="vertex","parameter"])
+layout.para.vec <- as.character(para[para$tab=="layout","parameter"])
+generic.para.vec <- c(as.character(para[para$tab=="generic","parameter"]),"...")
 
 
 
 generic.arg.vec <- function()intersect(names(formals(plot.network.default)),generic.para.vec)
+generic.arg.vec()
 
 generic.arg.vec.val <- function(){
  tmp <- formals(plot.network.default)
@@ -161,6 +162,61 @@ sa.arg.vec.val()
 
 
 
+sh.arg.vec <- function()names(formals(saveHTML))
+sh.arg.vec()
+sh.arg.vec.val <- function(){
+ tmp <-formals(saveHTML)
+ tmp$htmlfile <- "www/index.html"
+	tmp$imgdir <- "www"
+	tmp$autobrowse <- "FALSE"
+ tmp
+}
+sh.arg.vec.val()
+
+
+
+sg.arg.vec <- function()names(formals(saveGIF))
+sg.arg.vec()
+sg.arg.vec.val <- function(){
+ tmp <-formals(saveGIF)
+ tmp
+}
+sg.arg.vec.val()
+
+
+	
+
+help_file <- function(topic, console=FALSE,format=c("text", "html", "latex", "html"),
+  lines=NULL, before=NULL, after=NULL) {  
+ format=match.arg(format)
+ if (!is.character(topic)) topic <- deparse(substitute(topic))
+ helpfile = utils:::.getHelpFile(help(topic))
+ 
+ if(console){
+ hs <- capture.output(switch(format, 
+     text=tools:::Rd2txt(helpfile),
+     html=tools:::Rd2HTML(helpfile),
+     latex=tools:::Rd2latex(helpfile),
+     Rd=tools:::prepare_Rd(helpfile)
+   )
+ )
+ if(!is.null(lines)) hs <- hs[lines]
+ hs <- c(before, hs, after)
+ cat(hs, sep="\n")
+ invisible(hs)
+}
+else{
+ hs <- switch(format, 
+   text=tools:::Rd2txt(helpfile),
+   html=tools:::Rd2HTML(helpfile),
+   latex=tools:::Rd2latex(helpfile),
+   Rd=tools:::prepare_Rd(helpfile)
+ )
+ 
+ return(hs)
+}
+
+}
 
 
 
