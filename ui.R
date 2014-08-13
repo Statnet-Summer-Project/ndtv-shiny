@@ -22,7 +22,53 @@ customTextInput<-function (inputId, label, value="",...) {
 
 shinyUI(
   navbarPage(
-    title="Dynamic Network Visualization", 
+    title="Dynamic Network Visualization",
+    
+    tabPanel('Help',
+             h4('Resources'),
+             a("statnet Wiki",
+               href = "https://statnet.csde.washington.edu/trac", target = "_blank"),
+             br(),
+             a("network package: Introduction to the package",
+               href = "http://cran.r-project.org/web/packages/network/network.pdf", target = "_blank"),
+             br(),
+             
+             a("ndtv package: Introduction to the package", 
+               href = "http://statnet.csde.washington.edu/workshops/SUNBELT/current/ndtv/ndtv_workshop.pdf",
+               target = "_blank"),
+             br(),
+             
+             a("Using network: Journal of Statistical Software",
+               href = "http://www.jstatsoft.org/v24/i04/", target = "_blank"),
+             br(),
+             
+             hr(),
+             p("The best way to contact us with questions, comments or suggestions",
+               "is through the", strong("statnet users group"), "listserv."),
+             p("To post and receive messages from this listserv, you need to join.",
+               "Instructions are at:", 
+               a("https://mailman.u.washington.edu/mailman/listinfo/statnet_help",
+                 href = "https://mailman.u.washington.edu/mailman/listinfo/statnet_help",
+                 target = "_blank")),
+             p("You can use the listserv to:"),
+             tags$ul(
+               tags$li("get help from the statnet development team (and other users)"),
+               tags$li("post questions, comments and ideas to other users"),
+               tags$li("be informed about statnet updates"),
+               tags$li("learn about bugs (and bug fixes)")
+             ),
+             p("Once you have joined the list, you can post your questions and comments to",
+               strong("statnet_help@u.washington.edu")),
+             p("A full list of all messages posted to this list is available at",
+               a("https://mailman.u.washington.edu/mailman/private/statnet_help",
+                 href = "https://mailman.u.washington.edu/mailman/private/statnet_help",
+                 target = "_blank")),
+             br(),
+             hr(),
+             p("This web app is built with", a("Shiny",href="http://shiny.rstudio.com/",
+                                               target = "_blank")),
+             p("Author of app: Kirk Li, Tongfang Sun and Yixi Yang, , University of Washington")
+    ),
     tabPanel("network app",
       fluidRow(
         column(6, 
@@ -31,6 +77,32 @@ shinyUI(
               fluidRow(
                 column(12,
                   wellPanel(
+                    
+                    
+                    h4('Upload own files'),
+                    fileInput('file1', 'Choose relation file to upload',
+                              accept = c(
+                                'text/csv',
+                                'text/comma-separated-values',
+                                'text/tab-separated-values',
+                                'text/plain',
+                                '.csv',
+                                '.tsv'
+                              )
+                    ),
+                    fileInput('file2', 'Choose Vertex file to upload',
+                              accept = c(
+                                'text/csv',
+                                'text/comma-separated-values',
+                                'text/tab-separated-values',
+                                'text/plain',
+                                '.csv',
+                                '.tsv'
+                              )
+                    ),
+                    tags$hr(),
+                    
+                    
                     h5('Choose Dataset'),
                     selectInput('dataset',
                       label = 'Sample dataset',
@@ -135,6 +207,8 @@ shinyUI(
           fluidRow(
             column(6,
               wellPanel(
+                
+                
                 h4('Choose a dataset'),
                 selectInput('dataset_ndtv',
                   label = 'Sample dataset',
@@ -303,13 +377,20 @@ shinyUI(
             verbatimTextOutput('diag_ndtv')))
       )
     )
+
+  
+
+
+
   ,header=img(src = 'statnetLogo.png', height = 1),
     foot= 
   fluidRow(
     column(1, img(src = 'csdelogo_crop.png', height = 50, width = 50)),
     column(2, h6('Center for Studies in Demography and Ecology'))
-  )))
+  )
 
+
+))
 
 
 
