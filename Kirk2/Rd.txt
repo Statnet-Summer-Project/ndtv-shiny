@@ -1,0 +1,268 @@
+_T_w_o-_D_i_m_e_n_s_i_o_n_a_l _V_i_s_u_a_l_i_z_a_t_i_o_n _f_o_r _N_e_t_w_o_r_k _O_b_j_e_c_t_s
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     ‘plot.network’ produces a simple two-dimensional plot of network
+     ‘x’, using optional attribute ‘attrname’ to set edge values.  A
+     variety of options are available to control vertex placement,
+     display details, color, etc.
+
+_U_s_a_g_e:
+
+     ## S3 method for class 'network'
+     plot(x, ...)
+     
+     ## Default S3 method:
+     plot.network(x, attrname = NULL, 
+         label = network.vertex.names(x), coord = NULL, jitter = TRUE,
+         thresh = 0, usearrows = TRUE, mode = "fruchtermanreingold", 
+         displayisolates = TRUE, interactive = FALSE, xlab = NULL, 
+         ylab = NULL, xlim = NULL, ylim = NULL, pad = 0.2, label.pad = 0.5,
+         displaylabels = !missing(label), boxed.labels = FALSE, label.pos = 0,
+         label.bg = "white", vertex.sides = 50, vertex.rot = 0, vertex.lwd=1,
+         arrowhead.cex = 1, label.cex = 1, loop.cex = 1, vertex.cex = 1,
+         edge.col = 1, label.col = 1, vertex.col = 2, label.border = 1,
+         vertex.border = 1, edge.lty = 1, label.lty = NULL, vertex.lty = 1,
+         edge.lwd = 0, edge.label = NULL, edge.label.cex = 1,
+         edge.label.col = 1, label.lwd = par("lwd"), edge.len = 0.5, 
+         edge.curve = 0.1, edge.steps = 50, loop.steps = 20, 
+         object.scale = 0.01, uselen = FALSE, usecurve = FALSE,
+         suppress.axes = TRUE, vertices.last = TRUE, new = TRUE, 
+         layout.par = NULL, ...)
+     
+_A_r_g_u_m_e_n_t_s:
+
+       x: an object of class ‘network’.
+
+attrname: an optional edge attribute, to be used to set edge values.
+
+   label: a vector of vertex labels, if desired; defaults to the vertex
+          labels returned by ‘network.vertex.names’. If ‘label’ has one
+          element and it matches with a vertex attribute name, the
+          value of the attribute will be used. Note that labels may be
+          set but hidden by the ‘displaylabels’ argument.
+
+   coord: user-specified vertex coordinates, in an network.size(x)x2
+          matrix.  Where this is specified, it will override the ‘mode’
+          setting.
+
+  jitter: boolean; should the output be jittered?
+
+  thresh: real number indicating the lower threshold for tie values.
+          Only ties of value >‘thresh’ are displayed.  By default,
+          ‘thresh’=0.
+
+usearrows: boolean; should arrows (rather than line segments) be used
+          to indicate edges?
+
+    mode: the vertex placement algorithm; this must correspond to a
+          ‘network.layout’ function.
+
+displayisolates: boolean; should isolates be displayed?
+
+interactive: boolean; should interactive adjustment of vertex placement
+          be attempted?
+
+    xlab: x axis label.
+
+    ylab: y axis label.
+
+    xlim: the x limits (min, max) of the plot.
+
+    ylim: the y limits of the plot.
+
+     pad: amount to pad the plotting range; useful if labels are being
+          clipped.
+
+label.pad: amount to pad label boxes (if ‘boxed.labels==TRUE’), in
+          character size units.
+
+displaylabels: boolean; should vertex labels be displayed?
+
+boxed.labels: boolean; place vertex labels within boxes?
+
+label.pos: position at which labels should be placed, relative to
+          vertices.  ‘0’ results in labels which are placed away from
+          the center of the plotting region; ‘1’, ‘2’, ‘3’, and ‘4’
+          result in labels being placed below, to the left of, above,
+          and to the right of vertices (respectively); and
+          ‘label.pos>=5’ results in labels which are plotted with no
+          offset (i.e., at the vertex positions).
+
+label.bg: background color for label boxes (if ‘boxed.labels==TRUE’);
+          may be a vector, if boxes are to be of different colors.
+
+vertex.sides: number of polygon sides for vertices; may be given as a
+          vector or a vertex attribute name, if vertices are to be of
+          different types.
+
+vertex.rot: angle of rotation for vertices (in degrees); may be given
+          as a vector or a vertex attribute name, if vertices are to be
+          rotated differently.
+
+vertex.lwd: line width of vertex borders; may be given as a vector or a
+          vertex attribute name, if vertex borders are to have
+          different line widths.
+
+arrowhead.cex: expansion factor for edge arrowheads.
+
+label.cex: character expansion factor for label text.
+
+loop.cex: expansion factor for loops; may be given as a vector or a
+          vertex attribute name, if loops are to be of different sizes.
+
+vertex.cex: expansion factor for vertices; may be given as a vector or
+          a vertex attribute name, if vertices are to be of different
+          sizes.
+
+edge.col: color for edges; may be given as a vector, adjacency matrix,
+          or edge attribute name, if edges are to be of different
+          colors.
+
+label.col: color for vertex labels; may be given as a vector or a
+          vertex attribute name, if labels are to be of different
+          colors.
+
+vertex.col: color for vertices; may be given as a vector or a vertex
+          attribute name, if vertices are to be of different colors.
+
+label.border: label border colors (if ‘boxed.labels==TRUE’); may be
+          given as a vector, if label boxes are to have different
+          colors.
+
+vertex.border: border color for vertices; may be given as a vector or a
+          vertex attribute name, if vertex borders are to be of
+          different colors.
+
+edge.lty: line type for edge borders; may be given as a vector,
+          adjacency matrix, or edge attribute name, if edge borders are
+          to have different line types.
+
+label.lty: line type for label boxes (if ‘boxed.labels==TRUE’); may be
+          given as a vector, if label boxes are to have different line
+          types.
+
+vertex.lty: line type for vertex borders; may be given as a vector or a
+          vertex attribute name, if vertex borders are to have
+          different line types.
+
+edge.lwd: line width scale for edges; if set greater than 0, edge
+          widths are scaled by ‘edge.lwd*dat’.  May be given as a
+          vector, adjacency matrix, or edge attribute name, if edges
+          are to have different line widths.
+
+edge.label: if non-‘NULL’, labels for edges will be drawn. May be given
+          as a vector, adjacency matrix, or edge attribute name, if
+          edges are to have different labels. A single value of ‘TRUE’
+          will use edge ids as labels. NOTE: currently doesn't work for
+          curved edges.
+
+edge.label.cex: character expansion factor for edge label text; may be
+          given as a vector or a edge attribute name, if edge labels
+          are to have different sizes.
+
+edge.label.col: color for edge labels; may be given as a vector or a
+          edge attribute name, if labels are to be of different colors.
+
+label.lwd: line width for label boxes (if ‘boxed.labels==TRUE’); may be
+          given as a vector, if label boxes are to have different line
+          widths.
+
+edge.len: if ‘uselen==TRUE’, curved edge lengths are scaled by
+          ‘edge.len’.
+
+edge.curve: if ‘usecurve==TRUE’, the extent of edge curvature is
+          controlled by ‘edge.curv’.  May be given as a fixed value,
+          vector, adjacency matrix, or edge attribute name, if edges
+          are to have different levels of curvature.
+
+edge.steps: for curved edges (excluding loops), the number of line
+          segments to use for the curve approximation.
+
+loop.steps: for loops, the number of line segments to use for the curve
+          approximation.
+
+object.scale: base length for plotting objects, as a fraction of the
+          linear scale of the plotting region. Defaults to 0.01.
+
+  uselen: boolean; should we use ‘edge.len’ to rescale edge lengths?
+
+usecurve: boolean; should we use ‘edge.curve’?
+
+suppress.axes: boolean; suppress plotting of axes?
+
+vertices.last: boolean; plot vertices after plotting edges?
+
+     new: boolean; create a new plot?  If ‘new==FALSE’, vertices and
+          edges will be added to the existing plot.
+
+layout.par: parameters to the ‘network.layout’ function specified in
+          ‘mode’.
+
+     ...: additional arguments to ‘plot’.
+
+_D_e_t_a_i_l_s:
+
+     ‘plot.network’ is the standard visualization tool for the
+     ‘network’ class.  By means of clever selection of display
+     parameters, a fair amount of display flexibility can be obtained.
+     Vertex layout - if not specified directly using ‘coord’ - is
+     determined via one of the various available algorithms.  These
+     should be specified via the ‘mode’ argument; see ‘network.layout’
+     for a full list.  User-supplied layout functions are also possible
+     - see the aforementioned man page for details.
+
+     Note that where ‘is.hyper(x)==TRUE’, the network is converted to
+     bipartite adjacency form prior to computing coordinates.  If
+     ‘interactive==TRUE’, then the user may modify the initial network
+     layout by selecting an individual vertex and then clicking on the
+     location to which this vertex is to be moved; this process may be
+     repeated until the layout is satisfactory.
+
+_V_a_l_u_e:
+
+     A two-column matrix containing the vertex positions as x,y
+     coordinates
+
+_N_o_t_e:
+
+     ‘plot.network’ is adapted (with minor modifications) from the
+     ‘gplot’ function of the ‘sna’ library (authors: Carter T. Butts
+     and Alex Montgomery); eventually, these two packages will be
+     integrated.
+
+_A_u_t_h_o_r(_s):
+
+     Carter T. Butts <email: buttsc@uci.edu>
+
+_R_e_f_e_r_e_n_c_e_s:
+
+     Butts, C. T.  (2008).  “network: a Package for Managing Relational
+     Data in R.” _Journal of Statistical Software_, 24(2).  <URL:
+     http://www.jstatsoft.org/v24/i02/>
+
+     Wasserman, S., and Faust, K.  (1994).  _Social Network Analysis:
+     Methods and Applications._ Cambridge: Cambridge University Press.
+
+_S_e_e _A_l_s_o:
+
+     ‘network’, ‘network.arrow’, ‘network.loop’, ‘network.vertex’
+
+_E_x_a_m_p_l_e_s:
+
+     #Construct a sparse graph
+     m<-matrix(rbinom(100,1,1.5/9),10)
+     diag(m)<-0
+     g<-network(m)
+     
+     #Plot the graph
+     plot(g)
+     
+     #Load Padgett's marriage data
+     data(flo)
+     nflo<-network(flo)
+     #Display the network, indicating degree and flagging the Medicis
+     plot(nflo, vertex.cex=apply(flo,2,sum)+1, usearrows=FALSE,
+         vertex.sides=3+apply(flo,2,sum),
+         vertex.col=2+(network.vertex.names(nflo)=="Medici"))
+     

@@ -1,0 +1,70 @@
+body {
+background-color: #ffffff;
+font-family: Helvetica, Arial, sans-serif;
+font-weight: lighter;
+}
+div#sourceFields {
+display: none;
+}
+div#fieldChooser {
+width: 350px;
+}
+.fc-field {
+margin: 0 0 0 0;
+padding: 5px;
+font-size: 1.2em;
+width: 120px;
+outline: #777777 ridge thin;
+background-color: #cccccc;
+}
+.fc-selected {
+background-color: #999999;
+}
+.fc-field-list {
+margin: 0;
+padding: 3px 3px 3px 3px;
+margin-right: 10px;
+outline: #333333 solid thin;
+height: 600px;
+width: 150px;
+overflow: scroll;
+}
+.fc-source-fields {
+float: left;
+}
+.fc-destination-fields {
+float: right;
+}
+
+.video-controls {
+   position: absolute;
+   width: 50px;
+   height: 20px;
+   cursor: pointer;
+   background-color: #FFF;
+   border: 1px solid #000;
+}
+
+#play-btn {
+   left: 5px;
+}
+
+#pause-btn {
+   left: 5px;
+}
+
+#mute-btn {
+   left: 60px;
+}
+
+#unmute-btn {
+   left: 60px;
+}
+
+#stop-btn {
+   left: 115px;
+}
+
+#replay-btn {
+   left: 115px;
+}

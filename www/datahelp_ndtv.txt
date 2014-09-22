@@ -1,0 +1,45 @@
+_V_e_r_y _V_e_r_y _B_a_s_i_c _s_t_e_r_g_m _s_i_m_u_l_a_t_i_o_n _o_u_t_p_u_t
+
+_D_e_s_c_r_i_p_t_i_o_n:
+
+     Simulation from a crude stergm model based on the flobusiness
+     network. Mostly good for testing movies 'cause it is small (16
+     vertices) and fast. The 'stergm.sim.1' network is 100 simulation
+     steps in duration. The 'short.stergm.sim' network is an extract of
+     the first 25 steps of 'stergm.sim.1' - its shorter duration makes
+     it more suitable for quickly testing animation techniques.
+
+_U_s_a_g_e:
+
+     data(stergm.sim.1)
+     data(short.stergm.sim)
+     
+_F_o_r_m_a_t:
+
+     A 'networkDynamic' object containing the output of 100 steps of
+     the simulation
+
+_D_e_t_a_i_l_s:
+
+     The model used to generate the sim was: 'require(ergm)
+     data("florentine") theta.diss <- log(9) # fit the model
+     stergm.fit.1 <- stergm(flobusiness, formation=
+     ~edges+gwesp(0,fixed=T), dissolution = ~offset(edges),
+     targets="formation", offset.coef.diss = theta.diss, estimate =
+     "EGMME" ) stergm.sim.1 <- simulate.stergm(stergm.fit.1, nsim=1,
+     time.slices = 100) '
+
+     However, the ergm-related output that would normally be attached
+     to the network (toggles, etc) has been removed.
+
+_S_o_u_r_c_e:
+
+     See tergm package tutorials.
+
+_E_x_a_m_p_l_e_s:
+
+     data(stergm.sim.1)
+     range(get.change.times(stergm.sim.1))
+     data(short.stergm.sim)
+     range(get.change.times(short.stergm.sim))
+     
