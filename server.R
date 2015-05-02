@@ -14,7 +14,7 @@ library(network)
 library(ergm)
 library(tergm)
 library(ndtv)
-library(shinyIncubator)
+library(shinyIncubator) # devtools::install_github("rstudio/shiny-incubator")
 library(networkDynamic)
 library(shinyData)
 source("functions.R")
@@ -24,7 +24,6 @@ shinyServer(
    
    data(ecoli)
    data(florentine)
-   data(fauxhigh)
    data(faux.mesa.high)
    data(kapferer)
    data(sampson)
@@ -713,26 +712,47 @@ shinyServer(
    
    
    output$ra_ndtv <- renderPrint({
-      if(input$render_ndtv==0)return(cat("Click button to render"))
-      input$render_ndtv
-      
-            
-      withProgress(session, {
-         setProgress(message = "Rendering, please wait",
-           detail = "This may take a few moments...")
-      
-   
-   
-      ralist <- isolate({argFun.ra()})
-      tmp <- if(length(ralist)){","}   
-      res <- isolate({ca.fn()})
-      tryCatch(eval(parse(text=paste("tryCatch(expr=render.animation(res,render.par=isolate({render.par()})",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
-          )),error=function(e)cat("Input format is invalid"))
       
       
-      setProgress(message = "It's done")
-      
-     })
+    # if we will be rendering video
+    if (input$render_ndtv > 0) {
+        # todo: check if necessary system lims (ffmpeg) installed
+        input$render_ndtv
+        withProgress({
+           setProgress(0,message = "Rendering video file, please wait",
+             detail = "This may take a few moments...")
+        ralist <- isolate({argFun.ra()})
+        tmp <- if(length(ralist)){","}   
+        res <- isolate({ca.fn()})
+        tryCatch(eval(parse(text=paste("tryCatch(expr=render.animation(res,render.par=isolate({render.par()})",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
+            )),error=function(e)cat("Input format is invalid"))
+        
+        setProgress(1,message = "It's done")
+        
+       })
+      } else if (input$render_animation>0) {
+        input$render_animation
+        # if we will be rendering html5
+        withProgress({
+          setProgress(0,message = "Rendering animation file, please wait",
+                      detail = "This may take a few moments...")
+          ralist <- isolate({argFun.ra()})
+          tmp <- if(length(ralist)){","}   
+          res <- isolate({ca.fn()})
+          # save the iframe output as a temporary file
+          cat(capture.output(render.d3movie(res, output.mode = 'inline')),file = 'animation.tmp')
+          #tryCatch(eval(parse(text=paste("tryCatch(expr=render.d3movie(res,render.par=isolate({render.par()})",tmp,paste(ralist,sep=",",collapse=","),"),error=function(cond) {cat('Input value is invalid')})")
+          #)),error=function(e)cat("Input format is invalid"))
+         
+          
+          setProgress(1,message = "It's done")
+          
+        })
+        
+      } else {
+        # neither render buttton was pressed
+        return(cat("Click button to render"))
+      }
      })
    
    video.name <- reactive({
@@ -794,6 +814,7 @@ shinyServer(
       if(input$save_ndtv==0)return(cat("Click Movie button to play"))
       input$save_ndtv
       
+      # saveVideo verion
       withProgress(session, {
          setProgress(message = "Generating, please wait",
            detail = "This may take a few moments...")
@@ -805,6 +826,9 @@ shinyServer(
       
       setProgress(message = "It's done")
      })
+     
+     
+     
      })
    
    
@@ -818,13 +842,26 @@ shinyServer(
           )),error=function(e)cat("Input format is invalid"))
      })
 #   
-   
+   # --- movie view widit ---
    output$movie1 <- renderUI({
-      if(input$save_ndtv==0)return()
-      input$save_ndtv
-      sa.fn()
-      tags$video(src = "animation.mp4", type = "video/mp4", autoplay = FALSE, controls = TRUE,width="550",height="550")
-     })
+      if(input$save_ndtv>0){
+        input$save_ndtv
+        sa.fn()
+        tags$video(src = "animation.mp4", type = "video/mp4", autoplay = FALSE, controls = TRUE,width="550",height="550")
+     } else {
+       input$save_ndtv
+       # not saving, so seeif there is an animation to play
+       if(input$render_animation>0 && file.exists('animation.tmp')){
+         ndtv_d3_animation<-readLines('animation.tmp')
+         tags$div(HTML(ndtv_d3_animation))
+       } else {
+         tags$div('ndtv-d3 animation goes here')
+       }
+     }
+    })
+
+    
+
    
    output$movie2 <- renderUI({
       if(input$save_ndtv_html==0)return()
