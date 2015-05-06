@@ -69,6 +69,7 @@ shinyUI(
                                                target = "_blank")),
              p("Author of app: Kirk Li, Tongfang Sun and Yixi Yang, , University of Washington")
     ),
+    # ---- statntic network app ----
     tabPanel("network app",
       fluidRow(
         column(6, 
@@ -106,8 +107,7 @@ shinyUI(
                     h5('Choose Dataset'),
                     selectInput('dataset',
                       label = 'Sample dataset',
-                      c(Choose = '', 'ecoli1', 'ecoli2', 'faux.mesa.high',
-                        'fauxhigh', 'flobusiness','flomarriage',
+                      c(Choose = '', 'ecoli1', 'ecoli2', 'faux.mesa.high', 'flobusiness','flomarriage',
                         'kapferer','kapferer2','samplike'),
                       selectize = FALSE),
                     br(),
@@ -198,11 +198,12 @@ shinyUI(
     ########Jul 29, 2014################
     ########Jul 29, 2014################
     
-    progressInit(),
+    #progressInit(),
     
-    
+# ---- ndtv app ----    
     tabPanel("ndtv app",
       tabsetPanel(
+        # ---- ndtv data panel ----
         tabPanel('Data',
           fluidRow(
             column(6,
@@ -212,7 +213,7 @@ shinyUI(
                 h4('Choose a dataset'),
                 selectInput('dataset_ndtv',
                   label = 'Sample dataset',
-                  c(Choose = '', 'stergm.sim.1','short.stergm.sim'),
+                  c('short.stergm.sim', 'stergm.sim.1','toy_epi_sim'),
                   selectize = FALSE),
                 br(),
                 actionButton('load_ndtv', 'Load Data'),
@@ -228,7 +229,8 @@ shinyUI(
             )
           )
         ),
-        tabPanel('Computation Arguments',
+        # ---- ndtv Computation Arguments panel ----
+        tabPanel('Compute Animation',
           fluidRow(
             column(6,
               wellPanel(
@@ -272,8 +274,8 @@ shinyUI(
             column(6,
               verbatimTextOutput('computehelp')))
         ),
-        
-        tabPanel('Rendering Arguments',
+        # ---- ndtv Rendering Arguments panel ----
+        tabPanel('Render Animation',
           fluidRow(
             column(6,
               wellPanel(
@@ -308,7 +310,8 @@ shinyUI(
           ),
           fluidRow(
             column(6,
-              actionButton('render_ndtv', 'Render') ,
+              actionButton('render_ndtv', 'Render Video') , # for rendering video
+              actionButton('render_animation', 'Render Animation'),  # for rendering html5
               br(),
               br(),
               h5("Render Animation"),
@@ -317,8 +320,8 @@ shinyUI(
             column(6,
               verbatimTextOutput("renderhelp")))
         ),
-        
-        tabPanel('Play Movie',
+        # ---- ndtv Play Movie panel ----
+        tabPanel('View / Save',
           fluidRow(
             column(6,                
               br(),
@@ -381,7 +384,7 @@ shinyUI(
   
 
 
-
+# ---- app header ---
   ,header=img(src = 'statnetLogo.png', height = 1),
     foot= 
   fluidRow(

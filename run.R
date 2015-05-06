@@ -4,9 +4,9 @@
 ###############################################################################
 library(network)
 library(shiny)
-library(shinyData)
+library(shinyData) # devtools::install_github("Statnet-Summer-Project/shinyData")
 runApp()
-# devtools::install_github("Statnet-Summer-Project/shinyData")
+
 ##roxygenize(getwd())
 #
 ##if (!require("devtools"))
